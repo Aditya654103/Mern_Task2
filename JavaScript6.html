@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .outer{
+            width:100%;
+            height:100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            width:400px;
+            background-color: #ededed;
+            padding:40px;
+        }
+        .fw-normal{
+            font:inherit;
+            font-style: italic;
+            font-size:40px;
+            text-align: center;
+        }
+        .form-control{
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+        .ABC
+        {
+            display: inline;
+
+        }
+        .BCD{
+            display: inline;
+        }
+        .temp {
+        display: inline-block;
+        float:left;
+    }
+
+    .temp2 {
+        display: inline-block;
+        float:right;
+    }
+
+    .Inner {
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <form>
+            <h1 class="h3 mb-3 fw-normal">Instagram</h1>
+        
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" >
+              <label for="floatingInput">
+                <div class="ABC">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                    </svg>
+                </div>
+                <div class="BCD">
+                    Username
+                </div>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">
+                <div class="ABC">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                      </svg>
+                </div>
+                <div class="BCD">
+                    Password
+                </div>
+              </label>
+              <button class="btn btn-primary w-100 py-2" type="submit">Log in</button>
+            </div>
+            <div class="Inner">
+                <div class="temp">
+                <input type="checkbox" id="Remember">
+                <label for="Remember">Remember me</label>
+                </div>
+                <div class="temp2">
+                    <a href="#">Forgot Password</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

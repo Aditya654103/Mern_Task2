@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            padding: 5px;
+            border:2px solid black;
+            border-radius: 10px;
+        }
+        div{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="button" value="show date" onclick="func1()"><br>
+        <span class="ABC"></span>
+    </div>
+    <div>
+        <input type="button" value="show Time" onclick="func2()"><br>
+        <span class="BCD"></span>
+    </div>
+</body>
+<script>
+    function func1(){
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.toLocaleString('default', { month: 'long' });
+        var year = date.getFullYear();
+        var formattedDate = day + '/' + month + '/' + year;
+        document.getElementsByClassName('ABC')[0].innerHTML = formattedDate;
+    }
+    function func2(){
+        var date=new Date();
+        document.getElementsByClassName('BCD')[0].innerHTML=date;
+    }
+</script>
+</html>

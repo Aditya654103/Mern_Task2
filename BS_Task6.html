@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .txt{
+            color: red;
+        }
+        .ValidName{
+            visibility:hidden;
+        }
+        .ValidEmail{
+            visibility:hidden;
+        }
+        .ValidUrl{
+            visibility:hidden;
+        }
+        form{
+            width: 350px;
+            padding-left:20px;
+            background-color: lightgrey;
+        }
+        input{
+            width: 80%;
+        }
+        body{
+            display:flex;
+            height: 100vh;
+            justify-content:center;
+            align-items: center;
+        }
+        div{
+            margin: 20px;
+        }
+        .final{
+            background-color: red;
+            border-radius:5px;
+            border: 0px;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+    <div><label for="fname">Name</label><br>
+    <input type="text" id="fname" placeholder="Name"><br>
+    <span class="ValidName txt"> Name is required</span><br></div>
+    <div><label for="email">Email :</label><br>
+    <input type="text" id="email" placeholder="Email"><br>
+    <span class="ValidEmail txt">Email is required</span><br></div>
+    <div><label for="Website">Password :</label><br>
+    <input type="text" id="Website" placeholder="Website"><br>
+    <span class="ValidUrl txt">Password is required</span><br></div>
+    <div><label for="Message">Hobbies :</label><br>
+    <input type="text" id="Message" placeholder="Message"><br>
+    </div>
+    <div>
+        <input type="submit" class="final"value="Submit" style="color: white;"><br>
+    </div>
+    </form>
+</body>
+<script>
+    function setError(id)
+    {
+        if(id==='fname')
+        {
+            document.getElementsByClassName('ValidName')[0].style.visibility='visible';
+        }
+        if(id==='email')
+        {
+            document.getElementsByClassName('ValidEmail')[0].style.visibility='visible';
+        }
+        if(id==='Website')
+        {
+            document.getElementsByClassName('ValidUrl')[0].style.visibility='visible';
+        }
+    }
+    function validateForm()
+    {
+        var returnVal=true;
+        var name=document.getElementById('fname').value;
+        if(name.length===0)
+        {
+            setError('fname');
+            returnVal=false;
+        }
+        var email=document.getElementById('email').value;
+        if(email.length===0)
+        {
+            setError('email');
+            returnVal=false;
+        }
+        var temp=document.getElementById('Website').value;
+        if(temp.length===0)
+        {
+            setError('Website');
+            returnVal=false;
+        }
+        return returnVal;
+    }
+</script>
+</html>

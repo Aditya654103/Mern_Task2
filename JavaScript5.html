@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .txt{
+            color: red;
+        }
+        .ValidName{
+            visibility:hidden;
+        }
+        .ValidEmail{
+            visibility:hidden;
+        }
+        .ValidUrl{
+            visibility:hidden;
+        }
+        .ValidMess{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+    <table>
+        <tr>
+            <td><label for="fname">Name :</label></td>
+            <td><input type="text" id="fname" placeholder="Name"><b><span class="ValidName txt"> This field is required</span></b></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email :</label></td>
+            <td><input type="text" id="email" placeholder="Email"><b><span class="ValidEmail txt"> A valid email address is required</span></b><br></td>
+        </tr>
+        <tr>
+            <td><label for="Website">Website :</label></td>
+            <td><input type="text" id="Website" placeholder="Website"><b><span class="ValidUrl txt"> This valid url is required</span></b><br></td>
+        </tr>
+        <tr>
+            <td><label for="Message">Message :</label></td>
+            <td><input type="text" id="Message" placeholder="Message"><b><span class="ValidMess txt"> This field is required</span></b><br></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+    </form>
+</body>
+<script>
+    function setError(id)
+    {
+        if(id==='fname')
+        {
+            document.getElementsByClassName('ValidName')[0].style.visibility='visible';
+        }
+        if(id==='email')
+        {
+            document.getElementsByClassName('ValidEmail')[0].style.visibility='visible';
+        }
+        if(id==='Website')
+        {
+            document.getElementsByClassName('ValidUrl')[0].style.visibility='visible';
+        }
+        if(id==='Message')
+        {
+            document.getElementsByClassName('ValidMess')[0].style.visibility='visible';
+        }
+    }
+    function validateForm()
+    {
+        var returnVal=true;
+        var name=document.getElementById('fname').value;
+        if(name.length===0)
+        {
+            setError('fname');
+            returnVal=false;
+        }
+        var email=document.getElementById('email').value;
+        if(email.length===0)
+        {
+            setError('email');
+            returnVal=false;
+        }
+        var temp=document.getElementById('Website').value;
+        if(temp.length===0)
+        {
+            setError('Website');
+            returnVal=false;
+        }
+        var temp2=document.getElementById('Message').value;
+        if(temp2.length===0)
+        {
+            setError('Message');
+            returnVal=false;
+        }
+        return returnVal;
+    }
+</script>
+</html>

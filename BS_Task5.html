@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .txt {
+            color: red;
+        }
+        .ValidName, .ValidEmail, .ValidPhone, .ValidAddress, .ValidCity, .ValidState, .ValidHosting, .ValidDescription {
+            display: none;
+            color: red; /* Optional: Change the text color to red */
+        }
+        .form-table td {
+            padding-bottom: 10px;
+        }
+        .ABC{
+            width:300px;
+        }
+        .form-table input[type="text"],
+        .form-table input[type="email"],
+        .form-table select,
+        .form-table textarea {
+            padding: 5px;
+        }
+        .form-table label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-table select {
+            padding: 5px;
+        }
+        label{
+            position: relative;
+        }
+        
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+    <table class="form-table">
+        <tr>
+            <td><label for="fname">First Name :</label></td>
+            <td>
+                <input type="text" class="ABC" id="fname" placeholder="First Name">
+                <b><span class="ValidName txt"> This field is required</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="lname">Last Name :</label></td>
+            <td>
+                <input type="text" class="ABC" id="lname" placeholder="Last Name">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="email">Email :</label></td>
+            <td>
+                <input type="email" class="ABC" id="email" placeholder="Email">
+                <b><span class="ValidEmail txt"> A valid email address is required</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="phone">Phone :</label></td>
+            <td>
+                <input type="text" class="ABC" id="phone" placeholder="Phone">
+                <b><span class="ValidPhone txt"> This field is required</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="address">Address :</label></td>
+            <td>
+                <input type="text" class="ABC" id="address" placeholder="Address">
+                <b><span class="ValidAddress txt"> This field is required</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="city">City :</label></td>
+            <td>
+                <input type="text" class="ABC" id="city" placeholder="City">
+                <b><span class="ValidCity txt"> This field is required</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="state">State :</label></td>
+            <td>
+                <input type="text" class="ABC" id="state" placeholder="State">
+                <b><span class="ValidState txt"> This field is required</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="hosting">Do you have hosting :</label></td>
+            <td>
+                <select id="hosting">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <b><span class="ValidHosting txt"> Please select an option</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="description">Project Description :</label></td>
+            <td>
+                <textarea id="description" class="ABC" placeholder="Project Description"></textarea>
+                <b><span class="ValidDescription txt"> This field is required</span></b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
+    </form>
+
+    <script>
+        function setError(id, message)
+        {
+            var element = document.getElementsByClassName(id)[0];
+            if (element) {
+                element.style.display = 'inline'; // Display the error message
+                if (message) {
+                    element.textContent = message; // Set the error message text
+                }
+            }
+        }
+
+        function clearError(id) {
+            var element = document.getElementsByClassName(id)[0];
+            if (element) {
+                element.style.display = 'none'; // Hide the error message
+            }
+        }
+
+        function validateForm()
+        {
+            var returnVal = true;
+
+            // Validate First Name
+            var fname = document.getElementById('fname').value;
+            if (fname.length === 0) {
+                setError('ValidName', 'This field is required');
+                returnVal = false;
+            } else {
+                clearError('ValidName');
+            }
+
+            // Validate Email
+            var email = document.getElementById('email').value;
+            if (email.length === 0) {
+                setError('ValidEmail', 'A valid email address is required');
+                returnVal = false;
+            } else {
+                clearError('ValidEmail');
+            }
+
+            // Validate Phone
+            var phone = document.getElementById('phone').value;
+            if (phone.length === 0) {
+                setError('ValidPhone', 'This field is required');
+                returnVal = false;
+            } else {
+                clearError('ValidPhone');
+            }
+
+            // Validate Address
+            var address = document.getElementById('address').value;
+            if (address.length === 0) {
+                setError('ValidAddress', 'This field is required');
+                returnVal = false;
+            } else {
+                clearError('ValidAddress');
+            }
+
+            // Validate City
+            var city = document.getElementById('city').value;
+            if (city.length === 0) {
+                setError('ValidCity', 'This field is required');
+                returnVal = false;
+            } else {
+                clearError('ValidCity');
+            }
+
+            // Validate State
+            var state = document.getElementById('state').value;
+            if (state.length === 0) {
+                setError('ValidState', 'This field is required');
+                returnVal = false;
+            } else {
+                clearError('ValidState');
+            }
+
+            // Validate Hosting
+            var hosting = document.getElementById('hosting').value;
+            if (hosting === 'none') {
+                setError('ValidHosting', 'Please select an option');
+                returnVal = false;
+            } else {
+                clearError('ValidHosting');
+            }
+
+            // Validate Description
+            var description = document.getElementById('description').value;
+            if (description.length === 0) {
+                setError('ValidDescription', 'This field is required');
+                returnVal = false;
+            } else {
+                clearError('ValidDescription');
+            }
+
+            return returnVal;
+        }
+    </script>
+</body>
+</html>
